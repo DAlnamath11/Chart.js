@@ -1,0 +1,71 @@
+// Data for Grades 6, 7, and 8
+const grades = ['Grade 6', 'Grade 7', 'Grade 8'];
+const schoolData = [19, 18, 16];
+const districtData = [36, 34, 35];
+const stateData = [49, 45, 44];
+
+// Chart.js configuration
+const chartData = {
+  labels: grades,
+  datasets: [
+    {
+      label: 'School',
+      data: schoolData,
+      borderColor: 'blue',
+      backgroundColor: 'transparent',
+      pointBackgroundColor: 'blue',
+      pointRadius: 5,
+      pointHoverRadius: 7,
+    },
+    {
+      label: 'District',
+      data: districtData,
+      borderColor: 'red',
+      backgroundColor: 'transparent',
+      pointBackgroundColor: 'red',
+      pointRadius: 5,
+      pointHoverRadius: 7,
+    },
+    {
+      label: 'State',
+      data: stateData,
+      borderColor: 'green',
+      backgroundColor: 'transparent',
+      pointBackgroundColor: 'green',
+      pointRadius: 5,
+      pointHoverRadius: 7,
+    },
+  ],
+};
+
+// Chart options
+const chartOptions = {
+  responsive: true,
+  maintainAspectRatio: false,
+  title: {
+    display: true,
+    text: 'Transition from District to School Data',
+  },
+  scales: {
+    xAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: 'Grade',
+      },
+    }],
+    yAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: 'Percentage',
+      },
+    }],
+  },
+};
+
+// Create the chart
+const ctx = document.getElementById('transitionChart').getContext('2d');
+new Chart(ctx, {
+  type: 'line',
+  data: chartData,
+  options: chartOptions,
+});
